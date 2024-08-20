@@ -1,13 +1,13 @@
 {% set name = "napari-allencell-annotator" %}
-{% set version = "1.0.7" %}
+{% set version = "2.0.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-allencell-annotator-{{ version }}.tar.gz
-  sha256: 897812463f42f9462e30fb2856f836443d838d4df68c240fb22ae7ced3ffb9ca
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: a6e05ff38a844bb54310b7533236e0c18aa598089e721b020d3d95bb9b0a935c
 
 build:
   noarch: python
