@@ -6,19 +6,19 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-allencell-annotator-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/napari-allencell-annotator-{{ version }}.tar.gz
   sha256: 897812463f42f9462e30fb2856f836443d838d4df68c240fb22ae7ced3ffb9ca
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
     - pytest-runner
-    - python >=3.7
+    - python {{ python_min }}
   run:
     - aicsimageio >=4.0.5
     - aicssegmentation >=0.4.1
@@ -27,7 +27,7 @@ requirements:
     - napari-plugin-engine >=0.1.4
     - numpy
     - psygnal
-    - python >=3.7
+    - python >={{ python_min }}
     - qtpy
 
 test:
@@ -38,6 +38,7 @@ test:
     # - pip check  # itk-meshtopolydata and aicssegmentation
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/aics-int/napari-allencell-annotator/
